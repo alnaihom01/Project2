@@ -6,10 +6,11 @@ class ArchiveController extends GetxController {
   final ReportController dataController = Get.find<ReportController>();
   final selectedStatus = 'الكل'.obs;
 
-  List<ReportModel> get reports => dataController.archiveReports.where((report) {
-    if (selectedStatus.value == 'الكل') return true;
-    return report.status == selectedStatus.value;
-  }).toList();
+  List<ReportModel> get reports =>
+      dataController.archiveReports.where((report) {
+        if (selectedStatus.value == 'الكل') return true;
+        return report.status == selectedStatus.value;
+      }).toList();
 
   bool get isLoading => dataController.isLoading.value;
   String get selectedType => dataController.selectedType.value;
